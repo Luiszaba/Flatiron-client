@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+
+div.navbar {
+  background-color: rgb(140, 140, 236);
+  height: 10vh
+}
+
+.sidebar {
+  background-color: rgb(33, 223, 223);
+  width: 20vw;
+  height: 90vh;
+  float: left
+}
+
+.main-content {
+  float: left; 
+  width: 70vw;
+  height: 90vw;
+
+}
