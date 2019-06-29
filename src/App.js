@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Songs from './components/Songs'
-import SongService from './services/SongService'
-import AddSong from './components/AddSong'
+import Songs from './components/Songs';
+import SongService from './services/SongService';
+import AddSong from './components/AddSong';
 import './App.css';
 
 
@@ -18,21 +18,20 @@ class App extends Component {
   }
 
   addSong = song => { 
-    SongService.fetchSongs().then(songs => this.setState({ 
-      songs: this.state.songs.concat(song) 
+    SongService.createSong(song).then(song => this.setState({ 
+      songs: this.state.songs.concat(song)[0] 
     }))
   }
 
 
   render() {
-    console.log(this.state.songs)
   return (
     <div className="App">
       <h1>Albums App</h1>
 
       <div className="navbar">
         <h2>nav bar</h2>
-        {/*<Navbar />*/}
+        {<Navbar />}
       </div>
       
       <div className="sidebar">

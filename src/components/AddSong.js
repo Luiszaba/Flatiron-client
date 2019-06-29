@@ -7,14 +7,31 @@ class AddSong extends Component {
             title: '',
             artist: '',
             genre: '',
-            length: ''
+            legnth: ''
         }
     }
+
     handleOnChange = e => {
-        const {n}
+        const {name, value} = e.target;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleOnSubmit =e => {
+        e.preventDefault();
+        const song = this.state;
+        this.props.addSong(song)
+        this.setState({
+            title: '',
+            artist: '',
+            genre: '',
+            length: ''
+        })
     }
 
     render() {
+        console.log(this.state)
         return(
             <div className="form">
                 <form onSubmit={this.handleOnSubmit}>
@@ -43,13 +60,13 @@ class AddSong extends Component {
                     onChange={this.handleOnChange}
                     /><br />
 
-                    <label htmlFor="song_length">Song Length:</label>
+                    <label htmlFor="song_length">Song Legnth:</label>
                     <input 
                     type="text"
-                    name="length" 
-                    value={this.state.length}
+                    name="legnth" 
+                    value={this.state.legnth}
                     onChange={this.handleOnChange}
-                    />
+                    /><br />
                     <button>Add To Api</button>
                 </form>
             </div>
