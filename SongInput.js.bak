@@ -77,14 +77,44 @@ export class SongInput extends Component {
 export default connect(null, { addSong })(SongInput);
 
 
-    ReactDOM.render((
-        <Router>
-            <React.Fragment>
-            <Route exact path="/" component={ Home } />
-            <Route exact path="/components/songs" component={Songs} />
-            <Route exact path="/components/songinput" component={SongInput} />
-            <Route exact path="/components/comments" component={Comments} />
-            <Route exact path="/components/comments" component={CommentInput} />
-            </React.Fragment>
-        </Router>
-      ))
+
+const Home = () => {
+    return (
+        <div>
+            <h1>Final Project</h1>
+        </div>
+    )
+}
+const SongInput = () => {
+    return(
+    <div className="sidebar">
+        <p>User Input</p>
+          <SongInput />
+      </div>
+    )
+}
+const Songs = () => {
+    return(
+    <div className="main-content">
+        <p>Songs</p>
+          <Songs />
+    </div>
+    )
+}
+const Comments = () => {
+    return(
+    <div className="sidebar">
+        <p>What others are saying</p>
+          <Comments />
+    </div>
+    )
+}
+const CommentInput = () => {
+    return(
+    <div>
+        <p>Speak your mind</p>
+        <CommentInput />
+    </div>
+    )
+}
+

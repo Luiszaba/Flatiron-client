@@ -8,11 +8,9 @@ class SongsContainer extends Component {
         
         return(
             <div>
-                <SongInput 
-                    addSong={this.props.addSong}
+                <SongInput addSong={this.props.addSong}
                 />
-                <Song 
-                    songs={this.props.songs} 
+                <Song songs={this.props.songs} 
                     deleteSong={this.props.deleteSong}
                 />
             </div>

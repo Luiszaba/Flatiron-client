@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
-
-/*<link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-  crossorigin="anonymous"
-/>*/
 
 class SongInput extends Component {
     constructor(props){
@@ -85,7 +77,7 @@ class SongInput extends Component {
                     />
                     </p>
 
-                    <button>Add Song</button>
+                    <Button>Add Song</Button>
                 </form>
             </div>
         );

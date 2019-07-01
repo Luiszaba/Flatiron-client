@@ -33,20 +33,31 @@
 }
 
 div.navbar {
-  background-color: rgb(140, 140, 236);
-  height: 10vh
+  background-color: rgb(206, 231, 212);
+  margin: 10px;
+  -moz-background-inline-policy: bounding-box;
+  display: flex;
+  text-align: justify;
 }
 
-.sidebar {
+div.sidebar {
   background-color: rgb(33, 223, 223);
-  width: 20vw;
+  text-align: center;
+  width: 28vw;
   height: 90vh;
   float: left
 }
 
-.main-content {
-  float: center; 
+div.main-content {
+  background-color: bisque;
+  text-align: center;
+  float: right; 
   width: 70vw;
-  height: 90vw;
+  height: 20vw;
+}
 
+div.createComment {
+  background-color: tomato;
+  text-align: center;
+  height: 12vh;
 }

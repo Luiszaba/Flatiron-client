@@ -14,7 +14,7 @@ class Song extends Component {
 
       <div>
         <li>
-          {song.text}
+          {song.title}
           <button onClick={() => this.handleOnClick()}> Delete </button>
           <SongsContainer song={song}/>
         </li>

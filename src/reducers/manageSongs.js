@@ -2,6 +2,7 @@ import cuid from 'cuid';
 export const cuidFn = cuid;
 
 export default function manageSongs( state = {
+    
     songs: [],
     comments: [],
 }, action) {
@@ -20,7 +21,9 @@ export default function manageSongs( state = {
         return { ...state, songs }
 
     case 'ADD_COMMENT':
-        const comment = {text: action.comment.text, commentId: action.comment.SongId, id: cuidFn()}
+        const comment = {text: action.text, id: cuidFn() }
+        return {...state,
+            comments: [...state.comment, comment]}
     
     case 'REMOVE_COMMENT':
         const comments = state.comments.filter(comment => 

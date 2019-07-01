@@ -1,43 +1,54 @@
 import React, { Component } from 'react';
-import App from './App';
-import Song from './components/songs/Song';
+import { connect } from 'react-redux';
 
 class CommentInput extends Component {
-    state = {
-        text: ''
+    constructor(props) { 
+    super(props)
+    this.state = {
+        comment: ''
+        };
     }
 
     handleOnChange = event => {
         this.setState({
-            text: event.target.value
-        })
+            [event.target.name]: event.target.value
+        });
     }
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addComment({
-            text: this.state.text,
-            songId: this.props.songId
-        })
+        this.props.addComment(this.state.name)
+        this.setState({
+            comment: ''
+        });
     }
+
 
     render() {
         return(
-            <div>
-                <form onSubmit={this.handleOnSubmit} >
-                
+            <div className="form">
+                <form onSubmit={event => this.handleOnSubmit(event)} >
+
+                    <p>
                     <label>Add Comment</label>
                     <input 
                     type="text"
                     name="comment"
                     value={this.state.text}
-                    onChange={this.handleOnChange}
+                    onChange={event => this.handleOnChange(event)}
                     />
+                    </p>
+                    <button>Add Comment</button>
 
                 </form>
             </div>
         );
     }
 };
+const mapDispatchToProps = dispatch => {
+    return {
+        addComment: formData => dispatch({type: 'ADD_COMMENT', payload: formData})
+    };
+};
 
-export default CommentInput;
+export default connect(null, mapDispatchToProps)(CommentInput)
