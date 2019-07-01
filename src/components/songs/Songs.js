@@ -3,7 +3,6 @@ import Song from './Song';
 
 class Songs extends Component{
     render() {
-
         const { songs, deleteSong } = this.props;
         const songList = songs.map (song => {    
         return(
@@ -15,11 +14,9 @@ class Songs extends Component{
             )
         }
     )
-
     return (
         <li>{songList}</li>
         )
     }
 }
-
 export default Songs;

@@ -3,12 +3,17 @@ import Comment from './Comment';
 
 class Comments extends Component {
     render() {
-        const { comments, songId, deleteComment } = this.props;
-        const visitorComments = comments.filter(comment => comment.songId === songId );
-
-        const listComments = visitorComments.map((comment, index) => {
-            return <Comment key={index} comment={comment} deleteComment={deleteComment} />
-        })
+        const { comments, deleteComment } = this.props;
+        const listComments = comments.map(comment => {
+            return(
+                <Comment 
+                    key={index} 
+                    comment={comment} 
+                    deleteComment={deleteComment} 
+                 />
+                ) 
+            }
+        )
         return(
             <div>
                 <ul>
@@ -19,4 +24,4 @@ class Comments extends Component {
     }
 }
 
-export default Comments
+export default Comments;
