@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SongInput from './components/songs/SongInput';
-import Song from './components/songs/Songs';
+import SongInput from '../components/songs/SongInput';
+import Song from '../components/songs/Songs';
 import { connect } from 'react-redux';
 
 class SongsContainer extends Component {

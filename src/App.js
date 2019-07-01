@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Songs from '../components/songs/Songs';
-import SongInput from '../components/songs/SongInput';
-import Comments from '../components/comments/Comments'
-import SongService from '../services/SongService';
+import Songs from './components/songs/Songs';
+import SongInput from './components/songs/SongInput';
+import Comments from './components/comments/Comments';
+import SongService from './services/SongService';
 import { connect } from 'react-redux'
 import './App.css';
 
@@ -27,6 +27,12 @@ class App extends Component {
       this.setState({ 
         songs: this.state.songs.concat(song)[0] 
     }))
+  }
+
+  render() {
+    return(
+      <div></div>
+    )
   }
 } 
 

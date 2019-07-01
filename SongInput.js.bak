@@ -75,3 +75,16 @@ export class SongInput extends Component {
 };
 
 export default connect(null, { addSong })(SongInput);
+
+
+    ReactDOM.render((
+        <Router>
+            <React.Fragment>
+            <Route exact path="/" component={ Home } />
+            <Route exact path="/components/songs" component={Songs} />
+            <Route exact path="/components/songinput" component={SongInput} />
+            <Route exact path="/components/comments" component={Comments} />
+            <Route exact path="/components/comments" component={CommentInput} />
+            </React.Fragment>
+        </Router>
+      ))
