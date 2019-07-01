@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
+import { addSong } from '../AddSong'
+import uuid from 'uuid';
+import { connect } from 'react-redux'
 
-class AddSong extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            title: '',
-            artist: '',
-            genre: '',
-            legnth: ''
-        }
+export class SongInput extends Component {
+       
+    state = {
+        title: '',
+        artist: '',
+        genre: '',
+        legnth: ''
     }
+    
 
-    handleOnChange = e => {
-        const {name, value} = e.target;
+    handleOnChange = event => {
         this.setState({
-            [name]: value
-        })
+            [event.target.name]: event.target.value
+        });
     }
 
-    handleOnSubmit =e => {
-        e.preventDefault();
-        const song = this.state;
+    handleOnSubmit = event => {
+        event.preventDefault();
+        const song = {...this.state, id:uuid()};
         this.props.addSong(song)
         this.setState({
             title: '',
             artist: '',
             genre: '',
             length: ''
-        })
+        });
     }
 
     render() {
-        console.log(this.state)
         return(
             <div className="form">
-                <form onSubmit={this.handleOnSubmit}>
+                <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
                     <label htmlFor="song_title">Title:</label>
                     <input 
@@ -70,8 +70,8 @@ class AddSong extends Component {
                     <button>Add To Api</button>
                 </form>
             </div>
-        )
+        );
     }
-}
+};
 
-export default AddSong;
+export default connect(null, { addSong })(SongInput);

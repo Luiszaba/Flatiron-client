@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Songs from './components/Songs';
+import Songs from './components/songs/Songs';
+import SongInput from './components/songs/SongInput';
+import Comments from './components/comments/Comments'
 import SongService from './services/SongService';
-import AddSong from './components/AddSong';
+import { connect } from 'react-redux'
 import './App.css';
 
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       songs: []
@@ -17,12 +19,14 @@ class App extends Component {
     SongService.fetchSongs().then(songs => this.setState({songs}))
   }
 
+  /*
+
   addSong = song => { 
     SongService.createSong(song).then(song => this.setState({ 
       songs: this.state.songs.concat(song)[0] 
     }))
   }
-
+*/
 
   render() {
   return (
@@ -30,22 +34,40 @@ class App extends Component {
       <h1>Albums App</h1>
 
       <div className="navbar">
-        <h2>nav bar</h2>
-        {<Navbar />}
+        <h2>Nav bar</h2>
+          {<p>Navbar </p>}
       </div>
       
       <div className="sidebar">
-        <p>side bar</p>
-      <Songs songs={this.state.songs}/>
+        <p>Side bar</p>
+          <Songs />
       </div>
       
       <div className="main-content">
-        <p>content</p>
-        <AddSong addSong={this.addSong}/>
+        <p>Content</p>
+        <SongInput />
+        <Comments />
       </div>
+
     </div>
   );
   }
 }
 
-export default App;
+/*
+ReactDOM.render((
+  <Router>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/artists" component={Artists} />
+      <Route exact path="/comments" component={Comments} />
+      <Route exact path="playlists" component={Playlists} />
+      <Route exact path="/addSong" component={AddSong} />
+  </Router>
+))
+*/
+
+const mapStateToProps = state => {
+  return { songs: state.songs.playlists }
+}
+
+export default connect(mapStateToProps)(App);
